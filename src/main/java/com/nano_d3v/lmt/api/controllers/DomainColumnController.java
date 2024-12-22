@@ -2,6 +2,8 @@ package com.nano_d3v.lmt.api.controllers;
 
 import java.util.List;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -53,9 +55,12 @@ public class DomainColumnController {
     //     column.setName(name);
     // }
     
-    @DeleteMapping
-    public String removeColumn(@RequestBody Integer id) {
+    @DeleteMapping("/delete")
+    public String deleteColumn(@RequestBody DomainColumn domainColumn) {
         //remove column
+        // DomainColumn domainColumn = domainColumnService.deleteDomainColumn(id);
+        // return new ResponseEntity<>(domainColumn, HttpStatus.OK);
+        domainColumnService.deleteDomainColumn(domainColumn.getId());
         return "Column deleted successfully";
     }
 }

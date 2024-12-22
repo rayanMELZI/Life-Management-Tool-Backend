@@ -17,12 +17,19 @@ public class DomainColumnService {
         this.domainColumnRepository = domainColumnRepository;
     }
     
+    // getAllColumns
     public List<DomainColumn> getAllColumns(){
         return domainColumnRepository.findAll();
     }
 
+    // addDomainColumn
     public void addDomainColumn(String name) {
         DomainColumn domainColumn = new DomainColumn(name);
         domainColumnRepository.save(domainColumn);
+    }
+
+    // deleteDomainColumn
+    public void deleteDomainColumn(Integer id){
+        domainColumnRepository.deleteById(id);
     }
 }
