@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,9 +26,9 @@ public class DomainColumnController {
 
     @PostMapping("/add")
     public String addColumn(
-        @RequestParam("name") String name
+        @RequestBody DomainColumn domainColumn
     ) {
-        domainColumnService.addDomainColumn(name);
+        domainColumnService.addDomainColumn(domainColumn.getName());
         return "Column added successfully";
     }
     
@@ -52,8 +53,9 @@ public class DomainColumnController {
     //     column.setName(name);
     // }
     
-    // @DeleteMapping
-    // public DomainColumn removeColumn(@RequestParam("id") Integer id) {
-    //     //remove column
-    // }
+    @DeleteMapping
+    public String removeColumn(@RequestBody Integer id) {
+        //remove column
+        return "Column deleted successfully";
+    }
 }

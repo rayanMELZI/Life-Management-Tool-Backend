@@ -17,6 +17,9 @@ public class DomainColumn {
     @Column(name = "name")
     private String name;
 
+    public DomainColumn() {
+    }
+
     public DomainColumn(String name) {
         this.name = name;
     }
@@ -37,10 +40,10 @@ public class DomainColumn {
         this.name = name;
     }
 
-    @Override
-    public String toString() {
-        return "Column{" +
-                "name='" + name + '\'' +
-                '}';
-    }
+    // @Override
+    // public String toString() {
+    //     return "Column{" +
+    //             "name='" + name + '\'' +
+    //             '}';
+    // }
 }
