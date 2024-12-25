@@ -23,8 +23,8 @@ public class DomainColumnService {
     }
 
     // addDomainColumn
-    public void addDomainColumn(String name) {
-        DomainColumn domainColumn = new DomainColumn(name);
+    public void addDomainColumn(String title) {
+        DomainColumn domainColumn = new DomainColumn(title);
         domainColumnRepository.save(domainColumn);
     }
 
